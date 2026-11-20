@@ -29,18 +29,47 @@ function StudentForm() {
   };
 
   return (
-    <>
-      <h3>{id ? 'Edit Student' : 'Add Student'}</h3>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
-        <input placeholder="Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
-        <input placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
-        <input placeholder="Age" type="number" value={form.age} onChange={e => setForm({ ...form, age: e.target.value })} />
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <button type="submit">{id ? 'Update' : 'Add'}</button>
-          <button type="button" onClick={() => navigate('/')}>Cancel</button>
+    <div className="form-card">
+      <h3>{id ? 'Edit Student' : 'Add New Student'}</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Full Name</label>
+          <input
+            placeholder="e.g. Skipper Yamex"
+            value={form.name}
+            onChange={e => setForm({ ...form, name: e.target.value })}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Email Address</label>
+          <input
+            type="email"
+            placeholder="e.g. skipper@example.com"
+            value={form.email}
+            onChange={e => setForm({ ...form, email: e.target.value })}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Age</label>
+          <input
+            type="number"
+            placeholder="e.g. 25"
+            value={form.age}
+            onChange={e => setForm({ ...form, age: e.target.value })}
+          />
+        </div>
+        <div className="form-actions">
+          <button type="submit" className="btn btn-primary">
+            {id ? 'Update Student' : 'Save Student'}
+          </button>
+          <button type="button" className="btn btn-secondary" onClick={() => navigate('/')}>
+            Cancel
+          </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 

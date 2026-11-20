@@ -4,8 +4,7 @@ import StudentForm from './student-management/StudentForm';
 
 function App() {
   return (
-    <div style={{ padding: '30px', maxWidth: '800px', margin: 'auto' }}>
-      <h2>Student Management</h2>
+    <div className="app-container">
       <Routes>
         <Route path="/" element={<StudentList />} />
         <Route path="/add-student" element={<StudentForm />} />
